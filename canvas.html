@@ -41,11 +41,16 @@
         canCtx.lineWidth = 4;
         canCtx.setLineDash([8, 8]);
         let offset = 0
+        let sOffset = 0
         function animata() {
             canCtx.clearRect(0,0,600,600)
             canCtx.lineDashOffset = offset++;
             canCtx.beginPath();
             canCtx.strokeRect(200,200,200,200)
+            // canCtx.stroke()
+            canCtx.lineDashOffset = sOffset--
+            canCtx.beginPath()
+            canCtx.strokeRect(250,250,100,100)
             canCtx.stroke()
         }
 
