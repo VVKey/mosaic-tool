@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas-demo {
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas-demo' width="600" height="600"></canvas>
+    <script>
+        let canCon = document.querySelector('#canvas-demo')
+        let canCtx = canCon.getContext('2d')
+
+
+        // 颜色版
+        // function rect(row, col) {
+        //     for (let i = 0; i < row; i++) {
+        //         for (let j = 0; j < col; j++){
+        //             canCtx.fillStyle = `rgb(${Math.floor(255-(255/row*i))},${Math.floor(255-(255/row*j))},0)`
+        //             canCtx.beginPath()
+        //             // canCtx.fillRect(i*25,j*25,25,25)
+        //             canCtx.arc(i*25+12.5,j*25+12.5,12.5,0,Math.PI*2)
+        //             canCtx.fill()
+        //         }
+        //     }
+        // }
+        // rect(20,20)
+        // canCtx.globalAlpha = 0.5;
+        // canCtx.fillStyle = 'skyblue'
+        // canCtx.fillRect(0,0,500,500)
+
+
+        canCtx.strokeStyle = "#fff";
+        canCtx.lineWidth = 4;
+        canCtx.setLineDash([8, 8]);
+        let offset = 0
+        function animata() {
+            canCtx.clearRect(0,0,600,600)
+            canCtx.lineDashOffset = offset++;
+            canCtx.beginPath();
+            canCtx.moveTo(250, 250);
+            canCtx.lineTo(500, 250);
+            canCtx.stroke()
+        }
+
+        setInterval(animata,1000/60)
+    </script>
+</body>
+
+</html>
