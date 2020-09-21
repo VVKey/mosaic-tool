@@ -38,20 +38,18 @@
 
 
         // canCtx.strokeStyle = "#fff";
-        function animataStyle(){
-            for (let i = 0 ; i <255 ; i++){
-                for (let j = 0 ; j<255 ; j++){
-                    canCtx.strokeStyle = `rgb(${i},${j},0)`
-                }
-            }
-        }
         canCtx.lineWidth = 4;
         canCtx.setLineDash([8, 8]);
-        let offset = 0
-        let sOffset = 0
+        let offset = 0;
+        let sOffset = 0;
+        let lingrad = canCtx.createLinearGradient(200,200,400,400);
+        lingrad.addColorStop(0,'#00ABEB');
+        lingrad.addColorStop(0.2,'#fff')
+        lingrad.addColorStop(0.8,'#26C000');
+        lingrad.addColorStop(1,'#fff');
         function animata() {
             canCtx.clearRect(0,0,600,600)
-            
+            canCtx.strokeStyle = lingrad
             canCtx.lineDashOffset = offset++;
             canCtx.beginPath();
             canCtx.strokeRect(200,200,200,200)
