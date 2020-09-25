@@ -33,7 +33,37 @@
         }()
 
         canCtx = canvasObj.getContext('2d');
-        canCtx.fillStyle = 'rgb(95, 79, 168)';
+        let x = 233, y = 233, r = 60
+        let vx = 5, vy = 5
+        // let red ,g ,b
+        // function radomRgb(){
+        //     red = Math.floor(Math.random()*255);
+        //     g = Math.floor(Math.random()*255);
+        //     b = Math.floor(Math.random()*255);
+        //     return 'rgb(' + red + ',' + g + ',' + b + ')'
+        // }
+        function animate() {
+            canCtx.clearRect(0, 0, w, h)
+            canCtx.beginPath()
+            // canCtx.fillStyle = radomRgb();
+            
+            if (x < r || x + r > w) {
+                vx = - vx 
+            }
+            if (y < r || y + r > h) {
+                vy = - vy 
+            }
+            x = x + vx;
+            y = y + vy;
+            console.log('y',y);
+            console.log('vy',y);
+            
+            
+            canCtx.arc(x, y, r, 0, Math.PI * 2)
+            canCtx.fill()
+            window.requestAnimationFrame(animate)
+        }
+        animate()
     </script>
 </body>
 
