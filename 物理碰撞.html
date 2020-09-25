@@ -46,19 +46,19 @@
             canCtx.clearRect(0, 0, w, h)
             canCtx.beginPath()
             // canCtx.fillStyle = radomRgb();
-            
+
             if (x < r || x + r > w) {
-                vx = - vx 
+                vx = - vx
             }
             if (y < r || y + r > h) {
-                vy = - vy 
+                vy = - vy
             }
             x = x + vx;
             y = y + vy;
-            console.log('y',y);
-            console.log('vy',y);
-            
-            
+            console.log('y', y);
+            console.log('vy', y);
+
+
             canCtx.arc(x, y, r, 0, Math.PI * 2)
             canCtx.fill()
             window.requestAnimationFrame(animate)
